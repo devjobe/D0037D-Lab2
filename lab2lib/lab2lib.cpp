@@ -12,7 +12,7 @@ using namespace std;
 
 namespace lab2 {
 
-	bool is_sorted(int* v, int length) {
+	bool is_sorted(const int* v, int length) {
 		for (int n = 0;n < length-1;n++) {
 			if (v[n] > v[n + 1]) {
 				return false;
@@ -55,10 +55,12 @@ namespace lab2 {
 		cout << is_palindrome(buffer) << endl;
 	}
 
-	void array_rows_cols(int** arr2d, int rows, int columns) {
+	void array_rows_cols(int const* const arr2d[], int rows, int columns) {
 
-		int width = ((max(rows, columns) + 9) / 10)+3;
+		const int width = rows / 10 + 3;
+		const int last_column_width = (rows + columns) / 10 + 3;
 
+		int corner_sum = 0;
 		for (int i = 0;i < rows;i++) {
 			int row_sum = 0;
 			for (int j = 0;j < columns;j++) {
@@ -66,7 +68,8 @@ namespace lab2 {
 				cout << right << setw(width) << n;
 				row_sum += n;
 			}
-			cout << right << setw(width) << row_sum << endl;
+			corner_sum += row_sum;
+			cout << right << setw(last_column_width) << row_sum << endl;
 		}
 
 		for (int j = 0;j < columns;j++) {
@@ -75,11 +78,10 @@ namespace lab2 {
 				int n = arr2d[i][j];
 				col_sum += n;
 			}
+			corner_sum += col_sum;
 			cout << right << setw(width) << col_sum;
 		}
-		cout << endl;
-
-		// TODO sum of corner
+		cout << right << setw(last_column_width) << corner_sum << endl;
 	}
 
 	void task_3() {
