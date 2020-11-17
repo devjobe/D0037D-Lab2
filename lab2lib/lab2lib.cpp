@@ -195,37 +195,8 @@ namespace lab2 {
 		}
 	}
 
-	void task_5() {
-		string input;
-		cout << "input array: ";
-		getline(cin, input);
-
-		int capacity = count(input.begin(), input.end(), ',')+1;
-
-		int* arr = new int[capacity];
-		int count = 0;
-
-		auto ss = stringstream(input);
-		int n;
-
-		while ((ss >> n)) {
-			if(count < capacity) // always true but makes linter shut up.
-				arr[count++] = n;
-			char comma;
-			if (!(ss >> comma)) {
-				break;
-			}
-			if (comma != ',') {
-				cout << "Expected comma or end of list." << endl;
-				return;
-			}
-		}
-
-		// TODO: Check if at end of input?
-
-		shrink_array(arr, count);
-
-		cout << "output array: ";
+	void print_comma_seperated(const char* title, const int* arr, int count) {
+		cout << title;
 		for (int i = 0;i < count;i++) {
 			cout << arr[i];
 
@@ -234,8 +205,27 @@ namespace lab2 {
 			}
 		}
 		cout << endl;
+	}
 
-		delete[] arr;
+	void print_shrink_array(int* input, int count) {
+		print_comma_seperated("input array: ", input, count);
+		shrink_array(input, count);
+		print_comma_seperated("output array: ", input, count);
+		cout << endl;
+	}
+
+	void task_5() {
+		{
+			const int n = 10;
+			int input[n] = { 5, 5, 7, 6, 2, 2, 11, 11, 5, 4 };
+			print_shrink_array(input, n);
+		}
+
+		{
+			const int n = 9;
+			int input[n] = { 5, 5, 7, 6, 2, 2, 11, 11, 5 };
+			print_shrink_array(input, n);
+		}
 	}
 
 	enum DB_CHOICE {
