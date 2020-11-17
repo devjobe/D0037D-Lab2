@@ -29,6 +29,8 @@ No unreasonable difficulties.
 I think maybe point out that no dynamic allocation is needed (besides standard library things) 
 at the beginning of the lab description.
 
+When selecting the include path it's important to make it a relative path so it works on any computer.
+
 > Additionally, write an estimate how many hours you spent on this lab.
 
 Kinda forgot to keep track but very rough estimate is 4h.
