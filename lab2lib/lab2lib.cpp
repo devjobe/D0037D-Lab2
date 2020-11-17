@@ -11,6 +11,7 @@
 using namespace std;
 
 namespace lab2 {
+
 	bool is_sorted(int* v, int length) {
 		for (int n = 0;n < length-1;n++) {
 			if (v[n] > v[n + 1]) {
@@ -23,7 +24,6 @@ namespace lab2 {
 
 	void task_1() {
 		int arr[3];
-
 
 		cout << "Enter 3 integers to check if they are sorted: ";
 		if (cin >> arr[0] >> arr[1] >> arr[2]) {
@@ -48,11 +48,11 @@ namespace lab2 {
 
 	void task_2() {
 
-		char buffer[256];
 		cout << "Enter a lowercase word to see if it's a palindrome: ";
-		if (cin >> buffer) {
-			cout << is_palindrome(buffer) << endl;
-		}
+
+		char buffer[256];
+		cin.get(buffer, 256);
+		cout << is_palindrome(buffer) << endl;
 	}
 
 	void array_rows_cols(int** arr2d, int rows, int columns) {
@@ -79,6 +79,7 @@ namespace lab2 {
 		}
 		cout << endl;
 
+		// TODO sum of corner
 	}
 
 	void task_3() {
