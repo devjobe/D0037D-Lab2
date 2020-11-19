@@ -301,19 +301,12 @@ namespace lab2 {
 
 				string answer;
 				if ((cin >> answer)) {
-					bool erased = false;
-					for (auto it = db.cbegin();it != db.cend();it++) {
-						if (*it == answer) {
-							db.erase(it);
-							erased = true;
-							break;
-						}
-					}
-
-					if (erased)
+					if (auto it = find(db.cbegin(), db.cend(), answer); it != db.cend()) {
+						db.erase(it);
 						cout << "Name deleted." << endl;
-					else
+					} else {
 						cout << "No such name in database." << endl;
+					}
 				}
 				break;
 			}
