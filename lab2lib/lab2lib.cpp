@@ -276,7 +276,7 @@ namespace lab2 {
 
 				string answer;
 				while ((cin >> answer) && answer != "Q" && answer != "q") {
-					if(count(db.cbegin(), db.cend(), answer) == 0)
+					if(find(db.cbegin(), db.cend(), answer) == db.cend())
 						db.push_back(answer);
 				}
 				break;
