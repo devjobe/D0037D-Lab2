@@ -58,7 +58,7 @@ namespace lab2 {
 	void array_rows_cols(int const* const arr2d[], int rows, int columns) {
 
 		const int width = rows / 10 + 3;
-		const int last_column_width = (rows * columns) / 10 + 2;
+		const int last_column_width = (rows + columns) / 10 + 3;
 
 		int corner_sum = 0;
 		for (int i = 0;i < rows;i++) {
