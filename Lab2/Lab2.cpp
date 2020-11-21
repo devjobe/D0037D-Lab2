@@ -20,7 +20,7 @@ namespace lab2 {
 
             cout << "Menu: " << endl;
 
-            for (int i = 1;i < 6;i++)
+            for (int i = 1;i <= 6;i++)
                 cout << " " << i << ": Task " << i << endl;
 
             cout << "-1: Exit" << endl;
