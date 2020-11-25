@@ -7,8 +7,9 @@ namespace lab2 {
 
     // Helper function to clear any pending input
     void clear_cin() {
-        cin.seekg(0, ios_base::end);
         cin.sync();
+        cin.clear();
+        cin.seekg(0, ios_base::end);
         cin.clear();
     }
 
